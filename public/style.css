@@ -1,0 +1,33 @@
+body {
+  font-family: Arial;
+  background: #f4f4f4;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.auth-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+button {
+  padding: 10px 15px;
+  background: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

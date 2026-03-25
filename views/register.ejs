@@ -1,0 +1,182 @@
+<%- include("partials/header") %>
+
+<style>
+  :root {
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  body {
+    background: var(--bg-gradient);
+    font-family: 'Inter', -apple-system, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .register-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 450px;
+    backdrop-filter: blur(12px);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .register-card h2 {
+    font-size: 30px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+
+  .register-card p {
+    color: #6b7280;
+    margin-bottom: 30px;
+    font-size: 15px;
+  }
+
+  .input-group {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+    margin-left: 4px;
+  }
+
+  .input-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #f3f4f6;
+    border-radius: 14px;
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+    background: #f9fafb;
+  }
+
+  .input-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+  }
+
+  .register-btn {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.4);
+  }
+
+  .register-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+  }
+
+  .register-btn:active {
+    transform: translateY(0);
+  }
+
+  .footer-text {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #6b7280;
+  }
+
+  .footer-text a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .footer-text a:hover {
+    text-decoration: underline;
+  }
+
+  .alert {
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .alert-error { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+</style>
+
+<div class="register-card">
+  <h2>Create Account</h2>
+  <p>Start your journey with us today.</p>
+
+  <% if (typeof error !== 'undefined' && error.length > 0) { %>
+    <div class="alert alert-error">
+      <%= error %>
+    </div>
+  <% } %>
+
+  <form action="/register" method="POST">
+    <div class="input-group">
+      <label for="username">Username</label>
+      <input 
+        type="text" 
+        id="username" 
+        name="username" 
+        placeholder="Choose a unique username" 
+        required
+      >
+    </div>
+
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input 
+        type="password" 
+        id="password" 
+        name="password" 
+        placeholder="Create a strong password" 
+        required
+      >
+    </div>
+
+    <div class="input-group">
+      <label for="confirm-password">Confirm Password</label>
+      <input 
+        type="password" 
+        id="confirm-password" 
+        placeholder="Repeat your password" 
+        required
+      >
+    </div>
+
+    <button type="submit" class="register-btn">Create Free Account</button>
+  </form>
+
+  <div class="footer-text">
+    Already have an account? <a href="/login">Sign In</a>
+  </div>
+</div>
+
+</body>
+</html>
