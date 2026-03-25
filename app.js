@@ -24,10 +24,15 @@ app.use(session({
 }));
 
 app.set('view engine', 'ejs');
+app.get("/", (req, res) => {
+  res.redirect("/login");
+});
 
 const authRoutes = require('./routes/auth');
 app.use('/', authRoutes);
-
+app.use((req, res) => {
+  res.status(404).send(" Page Not Found");
+});
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(` Server running on port ${PORT}`);
