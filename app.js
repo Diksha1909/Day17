@@ -2,6 +2,7 @@ const path = require("path");
 require('node:dns').setServers(['8.8.8.8', '1.1.1.1']); 
 
 require("dotenv").config({ path: path.join(__dirname, ".env") });
+
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
@@ -26,6 +27,7 @@ app.set('view engine', 'ejs');
 
 const authRoutes = require('./routes/auth');
 app.use('/', authRoutes);
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(` Server running on port ${PORT}`);
